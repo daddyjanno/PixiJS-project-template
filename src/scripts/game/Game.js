@@ -1,8 +1,10 @@
 import * as PIXI from 'pixi.js'
 import { App } from '../system/App'
+import { Scene } from '../system/Scene'
 
-export class Game {
+export class Game extends Scene {
     constructor() {
+        super()
         this.container = new PIXI.Container()
         this.createBackground()
     }
