@@ -6,4 +6,7 @@ export const Config = {
         require['context']('./../../sprites', true, /\.(mp3|png|jpe?g)$/)
     ),
     startScene: Game,
+    scenes: {
+        Game: Game,
+    },
 }
