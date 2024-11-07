@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js'
 import { Loader } from './Loader'
+import { ScenesManager } from './ScenesManager'
 
 class Application {
     run(config) {
@@ -11,6 +12,9 @@ class Application {
 
         this.loader = new Loader(this.app.loader, this.config)
         this.loader.preload().then(() => this.start())
+
+        this.scenes = new ScenesManager()
+        this.app.stage.addChild(this.scenes.container)
     }
 
     res(key) {
@@ -22,8 +26,7 @@ class Application {
     }
 
     start() {
-        this.scene = new this.config['startScene']()
-        this.app.stage.addChild(this.scene.container)
+        this.scenes.start('Game')
     }
 }
 
